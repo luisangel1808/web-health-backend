@@ -1,0 +1,5 @@
+API_KEY=example
+JWT_SECRET=example
+JWT_SECRET_VERIFY=example
+NODE_MAIL=example@example.com
+NODE_MAIL_PASSWORD=example
