@@ -2,8 +2,9 @@ import Pressure from '../models/pressure';
 
 export const create = async (req, res) =>{
     try {
+        console.log(req.user.sub)
         const pressure = new Pressure({
-            idUser: req.body.idUser,
+            idUser: req.user.sub,
             systolic: req.body.systolic,
             diastolic: req.body.diastolic,
             pulse: req.body.pulse,
@@ -40,6 +41,19 @@ export const getById = async(req, res) =>{
     }catch (error) {
         res.status(500).json({
             message: error.message || 'Something was wrong finding the Pressure measurement'
+        })
+    }
+}
+
+export const getByMyId = async(req, res) =>{
+    try{
+        const {offset, limit} = req.query
+        const total = await Pressure.find({idUser:req.user.sub}).count()
+        const pressures = await Pressure.find({idUser:req.user.sub}).skip(parseInt(offset*limit)).limit(parseInt(limit));
+        return res.json({pressures, total});
+    }catch (error) {
+        res.status(500).json({
+            message: error.message || 'Something was wrong finding the Pressure measurements'
         })
     }
 }

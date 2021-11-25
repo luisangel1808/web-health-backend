@@ -1,5 +1,8 @@
 import { Router } from "express";
 import * as adviceCtrl from "../controllers/advice.controller";
+const { checkApiKey } = require('../middlewares/auth.handler');
+const { checkRoles } = require('../middlewares/auth.handler')
+const passport = require('passport');
 
 const router = Router();
 
