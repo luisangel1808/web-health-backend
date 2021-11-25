@@ -13,6 +13,7 @@ import './database'
 import passport from 'passport';
 
 const app = express()
+const port = process.env.PORT || 3000;
 const cors = require('cors')
 app.use(cors({
     origin:'*'
@@ -38,5 +39,6 @@ app.use(videosRoutes);
 app.use(usersRoutes);
 app.use(authRoutes);
 
-app.listen(app.get('port')); //Servidor ejecutandose
-console.log('Server on port: ', app.get('port'));
+app.listen(port, () => {
+    console.log(`My port ${port}`);
+});

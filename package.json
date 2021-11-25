@@ -33,11 +33,12 @@
     "server:build": "babel server -d dist",
     "server:start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js"
+    "start": "node server/index.js"
   },
   "engines":{
     "node": "14.x"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC"
