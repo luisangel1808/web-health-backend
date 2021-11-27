@@ -30,4 +30,4 @@ const VideoSchema = new Schema({
     versionKey:false
 })
 
-export default model('Video', VideoSchema)
+module.exports = model('Video', VideoSchema)

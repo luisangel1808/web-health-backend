@@ -12,4 +12,4 @@ const ImageSchema = new Schema({
     versionKey:false
 })
 
-export default model('Image', ImageSchema)
+module.exports = model('Image', ImageSchema);

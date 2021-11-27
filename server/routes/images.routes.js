@@ -1,7 +1,7 @@
 import { Router } from "express";
 import AWS from "aws-sdk";
 import config from "../config";
-const Image = require('../models/Image')
+import Image from "../models/Image";
 
 const router = Router();
 

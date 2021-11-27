@@ -25,4 +25,4 @@ const PressureSchema = new Schema({
     versionKey:false
 })
 
-export default model('Pressure', PressureSchema)
+module.exports = model('Pressure', PressureSchema)

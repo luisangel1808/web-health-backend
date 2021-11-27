@@ -26,4 +26,4 @@ const AdviceSchema = new Schema({
     versionKey:false
 })
 
-export default model('Advice', AdviceSchema)
+module.exports = model('Advice', AdviceSchema)
