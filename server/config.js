@@ -1,8 +1,8 @@
-import {config} from 'dotenv'
+const {config} = require('dotenv')
 
 config()
 
-export default{
+module.exports ={
     BucketName: process.env.BUCKET_NAME || '',
     Endpoint: process.env.ENDPOINT || '',
     apiKey: process.env.API_KEY,

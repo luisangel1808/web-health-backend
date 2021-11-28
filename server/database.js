@@ -1,4 +1,4 @@
- import mongoose from 'mongoose';
+ const mongoose = require('mongoose');
 
 (async () =>{
     const db = await mongoose.connect('mongodb://localhost/webhealth',{

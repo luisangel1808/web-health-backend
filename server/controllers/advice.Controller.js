@@ -1,6 +1,6 @@
-import Advice from '../models/advice';
+const Advice = require('../models/advice');
 
-export const create = async (req, res) =>{
+const create = async (req, res) =>{
     try {
         const advice = new Advice({
             idUser: req.body.idUser,
@@ -17,7 +17,7 @@ export const create = async (req, res) =>{
     }
 }
 
-export const getAllByUserId = async(req, res) =>{
+const getAllByUserId = async(req, res) =>{
     try{
         const {idUser} = req.params
         const {offset, limit} = req.query
@@ -31,7 +31,7 @@ export const getAllByUserId = async(req, res) =>{
     }
 }
 
-export const getById = async(req, res) =>{
+const getById = async(req, res) =>{
     try{
         return res.json(await Advice.findById(req.params.id));
     }catch (error) {
@@ -41,7 +41,7 @@ export const getById = async(req, res) =>{
     }
 }
 
-export const update = async(req, res) =>{
+const update = async(req, res) =>{
     try{
         await Advice.findByIdAndUpdate(req.params.id, req.body, {
             useFindAndModify: false,
@@ -54,7 +54,7 @@ export const update = async(req, res) =>{
     }
 }
 
-export const erase = async(req, res) =>{
+const erase = async(req, res) =>{
     try{
         await Advice.findByIdAndDelete(req.params.id)
         return res.json({message: 'Advice measurement was deleted sucessfully'})
@@ -64,3 +64,5 @@ export const erase = async(req, res) =>{
         })
     }
 }
+
+module.exports = { create, getAllByUserId, getById, update, erase }

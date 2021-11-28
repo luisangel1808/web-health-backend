@@ -1,7 +1,7 @@
-import User from '../models/user';
+const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
-export const create = async (req, res) =>{
+const create = async (req, res) =>{
     try {
         const {name, lastName, identificationType, identification, role, phone,
         email, password, birthDate} = req.body;
@@ -27,7 +27,7 @@ export const create = async (req, res) =>{
     }
 }
 
-export const getAllByUserId = async(req, res) =>{
+const getAllByUserId = async(req, res) =>{
     try{
         const {idUser} = req.params
         const {offset, limit} = req.query
@@ -41,7 +41,7 @@ export const getAllByUserId = async(req, res) =>{
     }
 }
 
-export const getMyUserData = async(req, res) =>{
+const getMyUserData = async(req, res) =>{
     try{
         return res.json(await User.findById(req.user.sub));
     }catch (error) {
@@ -51,7 +51,7 @@ export const getMyUserData = async(req, res) =>{
     }
 }
 
-export const getById = async(req, res) =>{
+const getById = async(req, res) =>{
     try{
         return res.json(await User.findById(req.params.id));
     }catch (error) {
@@ -61,7 +61,7 @@ export const getById = async(req, res) =>{
     }
 }
 
-export const getByEmail = async(email) =>{
+const getByEmail = async(email) =>{
     try{
         return await User.findOne({email:email});
     }catch (error) {
@@ -69,7 +69,7 @@ export const getByEmail = async(email) =>{
     }
 }
 
-export const update = async(req, res) =>{
+const update = async(req, res) =>{
     try{
         await User.findByIdAndUpdate(req.params.id, req.body, {
             useFindAndModify: false,
@@ -82,7 +82,7 @@ export const update = async(req, res) =>{
     }
 }
 
-export const erase = async(req, res) =>{
+const erase = async(req, res) =>{
     try{
         await User.findByIdAndDelete(req.params.id)
         return res.json({message: 'User was deleted sucessfully'})
@@ -93,7 +93,7 @@ export const erase = async(req, res) =>{
     }
 }
 
-export const addTask = async(req, res) =>{
+const addTask = async(req, res) =>{
     try{
         const user = await User.findById(req.params.id);
         const { title, description, importance, frequency } = req.body;
@@ -113,7 +113,7 @@ export const addTask = async(req, res) =>{
     }
 }
 
-export const editTask = async(req, res) =>{
+const editTask = async(req, res) =>{
     try{
         const { newTask, idUser } = req.body;
         const user = await User.findById(idUser);
@@ -127,7 +127,7 @@ export const editTask = async(req, res) =>{
     }
 }
 
-export const deleteTask = async(req, res) =>{
+const deleteTask = async(req, res) =>{
     try{
         const { idTask, idUser } = req.body;
         const user = await User.findById(idUser);
@@ -139,3 +139,5 @@ export const deleteTask = async(req, res) =>{
         })
     }
 }
+
+module.exports = { create, getAllByUserId, getMyUserData, getById, getByEmail, update, erase, addTask, editTask, deleteTask }

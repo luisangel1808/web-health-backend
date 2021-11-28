@@ -1,6 +1,6 @@
-import { Router } from "express";
-import AWS from "aws-sdk";
-import config from "../config";
+const { Router } = require("express");
+const AWS = require("aws-sdk");
+const config = require("../config");
 const Image = require('../models/Image')
 
 const router = Router();
@@ -55,4 +55,4 @@ router.delete("/api/images/:id", async (req, res) => {
     res.json(deletedImage)
 });
 
-export default router;
+module.exports = router;

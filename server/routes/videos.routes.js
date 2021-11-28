@@ -1,5 +1,5 @@
-import { Router } from "express";
-import * as videoCtrl from "../controllers/video.controller";
+const { Router } = require("express");
+const videoCtrl = require("../controllers/video.controller");
 const { checkApiKey } = require('../middlewares/auth.handler');
 const { checkRoles } = require('../middlewares/auth.handler')
 const passport = require('passport');
@@ -12,4 +12,4 @@ router.get("/api/video/:id", passport.authenticate('jwt', {session: false}), vid
 router.delete("/api/video/:id",passport.authenticate('jwt', {session: false}), videoCtrl.erase);
 router.patch("/api/video/:id", passport.authenticate('jwt', {session: false}), videoCtrl.update);
 
-export default router;
+module.exports = router;

@@ -1,6 +1,6 @@
 "use strict";
 const nodemailer = require("nodemailer");
-import config from './config'
+const config = require('./config');
 // async..await is not allowed in global scope, must use a wrapper
 async function sendMail() {
 

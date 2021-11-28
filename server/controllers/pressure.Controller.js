@@ -1,6 +1,6 @@
-import Pressure from '../models/pressure';
+const Pressure = require('../models/pressure');
 
-export const create = async (req, res) =>{
+const create = async (req, res) =>{
     try {
         console.log(req.user.sub)
         const pressure = new Pressure({
@@ -21,7 +21,7 @@ export const create = async (req, res) =>{
     }
 }
 
-export const getAllByUserId = async(req, res) =>{
+const getAllByUserId = async(req, res) =>{
     try{
         const {idUser} = req.params
         const {offset, limit} = req.query
@@ -35,7 +35,7 @@ export const getAllByUserId = async(req, res) =>{
     }
 }
 
-export const getById = async(req, res) =>{
+const getById = async(req, res) =>{
     try{
         return res.json(await Pressure.findById(req.params.id));
     }catch (error) {
@@ -45,7 +45,7 @@ export const getById = async(req, res) =>{
     }
 }
 
-export const getByMyId = async(req, res) =>{
+const getByMyId = async(req, res) =>{
     try{
         const {offset, limit} = req.query
         const total = await Pressure.find({idUser:req.user.sub}).count()
@@ -58,7 +58,7 @@ export const getByMyId = async(req, res) =>{
     }
 }
 
-export const update = async(req, res) =>{
+const update = async(req, res) =>{
     try{
         await Pressure.findByIdAndUpdate(req.params.id, req.body, {
             useFindAndModify: false,
@@ -71,7 +71,7 @@ export const update = async(req, res) =>{
     }
 }
 
-export const erase = async(req, res) =>{
+const erase = async(req, res) =>{
     try{
         await Pressure.findByIdAndDelete(req.params.id)
         return res.json({message: 'Pressure measurement was deleted sucessfully'})
@@ -81,3 +81,5 @@ export const erase = async(req, res) =>{
         })
     }
 }
+
+module.exports = { create, getAllByUserId, getById, getByMyId, update, erase }

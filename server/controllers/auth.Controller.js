@@ -1,11 +1,11 @@
-import config from '../config';
-import User from '../models/user';
+const config = require('../config');
+const User = require('../models/user');
 const boom = require('@hapi/boom');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 
-export const auth = async (req, res, next) => {
+const auth = async (req, res, next) => {
   try {
       const user = req.user;
       const payload={
@@ -20,7 +20,7 @@ export const auth = async (req, res, next) => {
   }
 };
 
-export const changePassword = async (req, res, next) => {
+const changePassword = async (req, res, next) => {
   try {
     const {token, newPassword} = req.body;
     const payload = jwt.verify(token, config.jwtSecretVerify);
@@ -42,7 +42,7 @@ export const changePassword = async (req, res, next) => {
   }
 };
 
-export const recovery =  async (req, res, next)=>{
+const recovery =  async (req, res, next)=>{
 
   try{
       const {email} = req.body;
@@ -83,3 +83,5 @@ export const recovery =  async (req, res, next)=>{
       next(error);
   }
 };
+
+module.exports = { auth, changePassword, recovery }

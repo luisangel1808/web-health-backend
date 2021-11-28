@@ -1,16 +1,16 @@
-import express from 'express';
-import fileUpload from 'express-fileupload';
+const express = require('express');
+const fileUpload = require('express-fileupload');
 
-import indexRoutes from './routes/index.routes';
-import imagesRoutes from './routes/images.routes';
-import pressuresRoutes from './routes/pressures.routes';
-import videosRoutes from './routes/videos.routes';
-import advicesRoutes from './routes/pressures.routes';
-import usersRoutes from './routes/users.routes';
-import authRoutes from './routes/auth.routes'
+const indexRoutes = require('./routes/index.routes');
+const imagesRoutes = require('./routes/images.routes');
+const pressuresRoutes = require('./routes/pressures.routes');
+const videosRoutes = require('./routes/videos.routes');
+const advicesRoutes = require('./routes/pressures.routes');
+const usersRoutes = require('./routes/users.routes');
+const authRoutes = require('./routes/auth.routes');
 
-import './database'
-import passport from 'passport';
+require('./database');
+const passport = require('passport');
 
 const app = express()
 const port = process.env.PORT || 3000;

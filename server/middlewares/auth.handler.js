@@ -1,6 +1,6 @@
 const boom = require('@hapi/boom');
 
-import config from'../config';
+const config = require('../config');
 
 function checkApiKey(req, res, next){
     const apiKey = req.headers['api'];

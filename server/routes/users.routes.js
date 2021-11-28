@@ -1,5 +1,5 @@
-import { Router } from "express";
-import * as userCtrl from "../controllers/user.controller";
+const { Router } = require("express");
+const userCtrl = require("../controllers/user.controller");
 const { checkApiKey } = require('../middlewares/auth.handler');
 const { checkRoles } = require('../middlewares/auth.handler')
 const passport = require('passport');
@@ -15,4 +15,4 @@ router.patch("/api/user/:id/add-task",userCtrl.addTask);
 router.patch("/api/user/:edit-task",userCtrl.editTask);
 router.patch("/api/user/:delete-task",userCtrl.deleteTask);
 
-export default router;
+module.exports = router;

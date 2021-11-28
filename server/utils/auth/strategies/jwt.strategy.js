@@ -1,4 +1,4 @@
-import config from "../../../config";
+const config = require("../../../config");
 const { Strategy, ExtractJwt } = require('passport-jwt');
 
 const options = {
