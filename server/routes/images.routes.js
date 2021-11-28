@@ -1,7 +1,7 @@
 /* const { Router } = require("express");
 const AWS = require("aws-sdk");
 const config = require("../config");
-const Image = require('../models/Image.js')
+const Image = require('../models/image.js')
 
 const router = Router();
 
