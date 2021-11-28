@@ -1,4 +1,4 @@
-const { Router } = require("express");
+/* const { Router } = require("express");
 const AWS = require("aws-sdk");
 const config = require("../config");
 const Image = require('../models/Image.js')
@@ -55,4 +55,4 @@ router.delete("/api/images/:id", async (req, res) => {
     res.json(deletedImage)
 });
 
-module.exports = router;
+module.exports = router; */

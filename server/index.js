@@ -2,7 +2,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 
 const indexRoutes = require('./routes/index.routes');
-const imagesRoutes = require('./routes/images.routes');
+//const imagesRoutes = require('./routes/images.routes');
 const pressuresRoutes = require('./routes/pressures.routes');
 const videosRoutes = require('./routes/videos.routes');
 const advicesRoutes = require('./routes/pressures.routes');
@@ -32,7 +32,7 @@ app.use(fileUpload({
 app.use(passport.initialize());
 
 app.use(indexRoutes);
-app.use(imagesRoutes);
+//app.use(imagesRoutes);
 app.use(pressuresRoutes);
 app.use(advicesRoutes);
 app.use(videosRoutes);
