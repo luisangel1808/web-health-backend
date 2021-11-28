@@ -25,8 +25,8 @@ const changePassword = async (req, res, next) => {
     const {token, newPassword} = req.body;
     const payload = jwt.verify(token, config.jwtSecretVerify);
     const user = await User.findById(payload.sub);
-    console.log(user.recoveryToken)
-    console.log(token)
+    //console.log(user.recoveryToken)
+    //console.log(token)
     if (user.recoveryToken !== token) {
       throw boom.unauthorized();
     }

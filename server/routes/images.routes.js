@@ -34,7 +34,7 @@ router.post("/api/images/upload", async (req, res) => {
     await image.save();
     return res.json(image);
   } catch (error) {
-    console.log(error);
+    ////console.log(error);
     res.send(error);
   }
 });

@@ -65,7 +65,7 @@ const getByEmail = async(email) =>{
     try{
         return await User.findOne({email:email});
     }catch (error) {
-        console.log(error)
+        ////console.log(error)
     }
 }
 

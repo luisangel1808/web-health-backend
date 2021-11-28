@@ -12,7 +12,7 @@ function checkApiKey(req, res, next){
 }
 
 function checkAdminRole(req, res, next){
-    console.log(req.user)
+    ////console.log(req.user)
     const user = req.user;
     if(user.role === '0'){
         next();

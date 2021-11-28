@@ -2,7 +2,7 @@ const Pressure = require('../models/pressure.js');
 
 const create = async (req, res) =>{
     try {
-        console.log(req.user.sub)
+        //console.log(req.user.sub)
         const pressure = new Pressure({
             idUser: req.user.sub,
             systolic: req.body.systolic,

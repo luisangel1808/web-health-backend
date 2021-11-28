@@ -5,5 +5,5 @@
     useNewUrlParser: true,
     useUnifiedTopology: true
     });
-    console.log('Connected to:', db.connection.name)
+    //console.log('Connected to:', db.connection.name)
 })(); 

@@ -40,5 +40,5 @@ app.use(usersRoutes);
 app.use(authRoutes);
 
 app.listen(port, () => {
-    console.log(`My port ${port}`);
+    //console.log(`My port ${port}`);
 });
