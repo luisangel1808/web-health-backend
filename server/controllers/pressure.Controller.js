@@ -1,4 +1,4 @@
-const Pressure = require('../models/pressure');
+const Pressure = require('../models/pressure.js');
 
 const create = async (req, res) =>{
     try {

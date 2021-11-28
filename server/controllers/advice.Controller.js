@@ -1,4 +1,4 @@
-const Advice = require('../models/advice');
+const Advice = require('../models/advice.js');
 
 const create = async (req, res) =>{
     try {

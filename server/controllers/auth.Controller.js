@@ -1,5 +1,5 @@
-const config = require('../config');
-const User = require('../models/user');
+const config = require('../config.js');
+const User = require('../models/user.js');
 const boom = require('@hapi/boom');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
