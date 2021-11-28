@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const boom = require('@hapi/boom');
 
-const userCtrl = require("../../../controllers/user.Controller");
+const userCtrl = require("../../../controllers/user.controller");
 
 const LocalStrategy = new Strategy({
         usernameField:'email',
