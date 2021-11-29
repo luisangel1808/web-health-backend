@@ -35,7 +35,7 @@ const UserSchema = new Schema({
     },
     recoveryToken:{
         type:String,
-        required:true
+        required:false
     },
     birthDate:{
         type:Date,
