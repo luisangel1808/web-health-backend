@@ -129,8 +129,8 @@ const editTask = async(req, res) =>{
 
 const deleteTask = async(req, res) =>{
     try{
-        const { idTask, idUser } = req.body;
-        const user = await User.findById(idUser);
+        const { idTask } = req.body;
+        const user = await User.findById(req.user.sub)
         user.tasks = user.tasks.filter(task=> task.id!==idTask)
         return res.json({message: 'User measurement was deleted sucessfully'})
     }catch (error) {
