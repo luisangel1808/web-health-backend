@@ -6,10 +6,10 @@ const passport = require('passport');
 
 const router = Router();
 
-router.get("/api/:idUser/advice", adviceCtrl.getAllByUserId);
-router.post("/api/advice", adviceCtrl.create);
-router.get("/api/advice/:id",adviceCtrl.getById);
-router.delete("/api/advice/:id",adviceCtrl.erase);
-router.patch("/api/advice/:id",adviceCtrl.update);
+router.get("/api/:idUser/advice", passport.authenticate('jwt', {session:false}), adviceCtrl.getAllByUserId);
+router.post("/api/advice", passport.authenticate('jwt', {session:false}), adviceCtrl.create);
+router.get("/api/advice/:id", passport.authenticate('jwt', {session:false}), adviceCtrl.getById);
+router.delete("/api/advice/:id", passport.authenticate('jwt', {session:false}), adviceCtrl.erase);
+router.patch("/api/advice/:id",passport.authenticate('jwt', {session:false}), adviceCtrl.update);
 
 module.exports = router;
