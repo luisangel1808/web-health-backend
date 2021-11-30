@@ -53,7 +53,7 @@ const recovery =  async (req, res, next)=>{
 
       const payload = { sub: user.id };
       const token = jwt.sign(payload, config.jwtSecretVerify, {expiresIn: '15min'});
-      const link = `http://webhealth.com/recovery?token=${token}`;
+      const link = `https://webhealth-56956.firebaseapp.com/change-password?token=${token}`;
       
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
