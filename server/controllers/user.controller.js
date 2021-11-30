@@ -95,7 +95,7 @@ const erase = async(req, res) =>{
 
 const addTask = async(req, res) =>{
     try{
-        const user = await User.findById(req.params.id);
+        const user = await User.findById(req.user.sub);
         const { title, description, importance, frequency } = req.body;
         const newTask ={
             title,
@@ -115,8 +115,8 @@ const addTask = async(req, res) =>{
 
 const editTask = async(req, res) =>{
     try{
-        const { newTask, idUser } = req.body;
-        const user = await User.findById(idUser);
+        const { newTask } = req.body;
+        const user = await User.findById(req.user.sub)
         user.tasks = user.tasks.filter(task=> task.id!==newTask.id);
         user.tasks.push(newTask);
         return res.json({message: 'User measurement was deleted sucessfully'})
